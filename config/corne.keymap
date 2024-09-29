@@ -46,13 +46,12 @@
         bluetooth_DEL_ALL {
             bindings = <&bt BT_CLR_ALL>;
             key-positions = <13 14 15 16 38 39 20 21 22 19>;
-            layers = <3>;
             timeout-ms = <5000>;
             require-prior-idle-ms = <1000>;
         };
 
         bluetooth_open {
-            bindings = <&tog 3>;
+            bindings = <&tog 0>;
             key-positions = <38 39 30>;
         };
 
@@ -73,10 +72,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q        &kp W  &kp E       &kp R   &kp T                   &kp Y    &kp U   &kp I          &kp O    &kp P     &none
-&none  &mt LCTRL A  &kp S  &kp D       &kp F   &kp G                   &kp H    &kp J   &kp K          &kp L    &kp SEMI  &none
-&none  &kp Z        &kp X  &kp C       &kp V   &kp B                   &kp N    &kp M   &kp COMMA      &kp DOT  &kp FSLH  &none
-                           &kp DELETE  &trans  &mt LEFT_SHIFT SPACE    &kp RET  &tog 1  &kp BACKSPACE
+&none  &kp Q        &kp W  &kp E       &kp R         &kp T                   &kp Y        &kp U  &kp I          &kp O    &kp P     &none
+&none  &mt LCTRL A  &kp S  &kp D       &kp F         &kp G                   &kp H        &kp J  &kp K          &kp L    &kp SEMI  &none
+&none  &kp Z        &kp X  &kp C       &kp V         &mt LEFT_WIN B          &kp N        &kp M  &kp COMMA      &kp DOT  &kp FSLH  &none
+                           &kp ESCAPE  &kp LEFT_ALT  &mt LEFT_SHIFT SPACE    &lt 2 ENTER  &mo 1  &kp BACKSPACE
             >;
         };
 
@@ -85,7 +84,16 @@
 &trans  &kp N1     &kp N2  &kp N3      &kp N4  &kp N5    &trans  &trans     &trans     &none     &kp BSLH  &trans
 &trans  &kp N6     &kp N7  &kp N8      &kp N9  &kp N0    &trans  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &trans
 &trans  &kp GRAVE  &trans  &trans      &trans  &trans    &trans  &trans     &trans     &trans    &trans    &trans
-                           &kp ESCAPE  &tog 0  &trans    &trans  &tog 0     &trans
+                           &kp ESCAPE  &trans  &trans    &trans  &trans     &trans
+            >;
+        };
+
+        else {
+            bindings = <
+&trans  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5     &trans    &kp END   &kp HOME  &trans     &trans  &trans
+&trans  &kp F6  &kp F7  &kp F8  &kp F9   &kp F10    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
+&trans  &trans  &trans  &trans  &kp F11  &kp F12    &trans    &trans    &trans    &trans     &trans  &trans
+                        &trans  &trans   &trans     &trans    &trans    &trans
             >;
         };
 
@@ -95,15 +103,6 @@
 &none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
                      &none  &none  &none    &none  &none  &none
-            >;
-        };
-
-        bluetooth {
-            bindings = <
-&none  &none         &none         &none         &trans        &trans          &none  &none   &none       &none       &none  &none
-&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none  &trans  &bt BT_PRV  &bt BT_NXT  &none  &none
-&none  &none         &none         &none         &trans        &trans          &none  &none   &none       &none       &none  &none
-                                   &none         &none         &none           &none  &none   &none
             >;
         };
     };
